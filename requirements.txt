@@ -1,0 +1,4 @@
+appdirs==1.4.3
+lxml==3.7.3
+pyparsing==2.2.0
+pytest==3.0.7
