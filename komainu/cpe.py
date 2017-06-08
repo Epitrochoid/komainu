@@ -34,3 +34,8 @@ def make_get_nvdid(root):
     def get_nvdid(cpe_entry):
         return cpe_entry.find('.//{{{0}}}item-metadata'.format(meta)).get('nvd-id')
     return get_nvdid
+
+def check_for_cve(config, name, version):
+    parts = config.split(':')
+    if parts[3] == name:
+        return version == parts[4]
