@@ -13,8 +13,23 @@
 # limitations under the License.
 
 from lxml import etree
+import requests
+import tempfile
 
 # TODO: Look at using an interable parse to save memory
 def load_xml_file(filename):
     handle = open(filename, 'rb')
     return etree.parse(handle)
+
+def fetch_gz_file(url, filename):
+    file_request = requests.get(url)
+    with tempfile.TemporaryFile() as tf:
+        for chunk in file_request.iter_content(chunk_size=1024):
+            if chunk:
+                tf.write(chunk)
+
+        with gzip.open(tf, 'rb') as gf:
+            unzipped_content = gf.read()
+
+            with open(filename, 'wb') as of:
+                of.write(gf)
