@@ -9,7 +9,7 @@ idna==2.6
 ipaddress==1.0.18
 lxml==3.7.3
 ndg-httpsclient==0.4.3
-py==1.4.34
+py==1.10.0
 pyasn1==0.3.7
 pycparser==2.18
 pyOpenSSL==17.3.0
